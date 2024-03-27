@@ -1,0 +1,12 @@
+$base-color-dark: #065758;
+$base-color-dark-medium: #82c3c5;
+$base-color-light: #a9d4d6;
+$base-color-light-medium: #e2f0ef;
+
+
+.flex-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

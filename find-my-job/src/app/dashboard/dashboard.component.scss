@@ -1,0 +1,47 @@
+@import '../shared/styles/layout.scss';
+
+.dashboard-content {
+  height: 100%;
+}
+
+.dashboard-image {
+  height: 50vh;
+}
+
+.dashboard-text-section {
+  margin-left: 10vw;
+}
+
+.button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 2px 16px;
+  height: 38px;
+  min-width: 200px;
+  min-height: 38px;
+  border: none;
+  color: #fff;
+  background-color: $base-color-dark;
+  transition: background-color .17s ease,color .17s ease;
+}
+
+.button:hover {
+    background-color: #09696b;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
