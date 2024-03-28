@@ -15,6 +15,6 @@ export class DashboardComponent {
   }
 
   goToJobs(): void {
-    this.router.navigate(['jobs']);
+    this.router.navigate(['job']);
   }
 }

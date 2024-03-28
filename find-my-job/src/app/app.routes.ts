@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 export const routes: Routes = [
     { 
@@ -8,6 +9,9 @@ export const routes: Routes = [
     },
     {
         path: 'dashboard', component: DashboardComponent
+    },
+    {
+        path: 'job', loadChildren: () => import('./features/job').then(m => m.JobModule)
     },
     {
         path: '**', component: NotFoundComponent
