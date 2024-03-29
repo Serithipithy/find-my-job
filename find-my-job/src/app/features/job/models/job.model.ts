@@ -1,10 +1,11 @@
 export type JobModel = {
+  id: string;
   title: string;
   description: string;
   position: string;
   company: string;
   experienceLevel: string;
-  isOpen: string;
+  isOpen: boolean;
   location: string;
   remote: string;
 }

@@ -1,1 +1,31 @@
-<p>job-details works!</p>
+<div *ngIf="jobContent; else noContent">
+  <h1>Title: {{jobContent.title}}</h1>
+  <h3>Description: {{jobContent.description}}</h3>
+  <h3>position: {{jobContent.position}}</h3>
+  <h3>company: {{jobContent.company}}</h3>
+  <h3>Experience: {{jobContent.experienceLevel}}</h3>
+  <h3>Open: {{jobContent.isOpen}}</h3>
+  <h3>location: {{jobContent.location}}</h3>
+  <h3>Remote: {{jobContent.remote}}</h3>
+</div>
+
+<ng-template #noContent>
+  <h1>No content</h1>
+</ng-template>
+
+
+
+
+<!-- @if(jobContent) {
+  <h1>{{jobContent.title}}</h1>
+  <h3>{{jobContent.description}}</h3>
+  <h3>{{jobContent.position}}</h3>
+  <h3>{{jobContent.company}}</h3>
+  <h3>{{jobContent.experienceLevel}}</h3>
+  <h3>{{jobContent.isOpen}}</h3>
+  <h3>{{jobContent.location}}</h3>
+  <h3>{{jobContent.remote}}</h3>
+} 
+@else {
+  <p>No content</p>
+} -->

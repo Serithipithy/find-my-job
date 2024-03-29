@@ -1,0 +1,24 @@
+[
+  {
+      "id": "1",
+      "title": "Flutter developer",
+      "description": "We are looking for a great frontender",
+      "position": "Frontend",
+      "company": "Google",
+      "experienceLevel": "middle/senior",
+      "isOpen": true,
+      "location": "Iasi",
+      "remote": "remote"
+  },
+  {
+    "id": "2",
+    "title": "Angular internship",
+    "description": "Do you want to expand your knowledge and be part of our team? Join us for 3 months and we'll see how it goes.",
+    "position": "Application Developer",
+    "company": "Centric",
+    "experienceLevel": "entry-level",
+    "isOpen": true,
+    "location": "Romania",
+    "remote": "hybrid"
+}
+]
