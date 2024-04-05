@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -8,7 +8,11 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './title-card.component.html',
   styleUrl: './title-card.component.scss'
 })
-export class TitleCardComponent {
+export class TitleCardComponent implements OnInit {
   @Input() title?: string;
   @Input() icon?: string;
+  
+  ngOnInit() {
+    console.log('Initiated TitleCardComponent');
+  }
 }
