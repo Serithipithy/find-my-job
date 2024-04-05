@@ -1,1 +1,56 @@
-<p>job-add works!</p>
+<h1>Add a job</h1>
+
+<form [formGroup]="jobFormGroup"
+      (ngSubmit)="submitForm()">
+       <label for="Title">Title:</label>
+       <input type="text"
+              formControlName="title">
+
+       <label for="Description">Description:</label>
+       <input type="text"
+              formControlName="description">
+
+       <span *ngIf="jobFormGroup.get('description')?.errors?.['minlength']">
+              The description must be longer than 3 characters.
+       </span>
+
+       <label>Position:</label>
+       <input type="text"
+              formControlName="position">
+
+       <label>Company:</label>
+       <input type="text"
+              formControlName="company">
+
+       <label>Experience:</label>
+       <input type="text"
+              formControlName="experience">
+
+       <div class="checkbox-container ">
+              <label>Open:</label>
+              <input type="checkbox"
+                     formControlName="open">
+       </div>
+       <label>Location:</label>
+       <input type="text"
+              formControlName="location">
+
+       <label>Remote:</label>
+       <input type="text"
+              formControlName="remote">
+
+       <button type="submit"
+               [disabled]="jobFormGroup.invalid">Submit</button>
+               <button (click)="setOrPatchValue()">SetValue VS PatchValue</button> 
+</form>
+
+<div class="center-text">
+       <p>Pristine: {{ jobFormGroup.pristine }}</p>
+       <p>Dirty: {{ jobFormGroup.dirty }}</p>
+       <p>Valid: {{ jobFormGroup.valid }}</p>
+       <p>Invalid: {{ jobFormGroup.invalid }}</p>
+       <!-- <p>Errors: {{ jobFormGroup.errors}}</p> -->
+       <p>Touched: {{ jobFormGroup.touched }}</p>
+       <p>Untouched: {{ jobFormGroup.untouched }}</p>
+       <p>Value: {{ jobFormGroup.value | json }}</p>
+</div>
