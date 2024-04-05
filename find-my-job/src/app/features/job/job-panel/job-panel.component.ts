@@ -9,10 +9,4 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class JobPanelComponent {
 
-  constructor(private readonly router: Router) { }
-
-  goToPage(path: string): void {
-    this.router.navigate([this.router.url, path]);
-  }
-
 }
