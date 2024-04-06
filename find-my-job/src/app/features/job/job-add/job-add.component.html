@@ -26,10 +26,14 @@
        <input type="text"
               formControlName="experience">
 
+       <!-- #checkboxValue local reference in Angular template -->
        <div class="checkbox-container ">
               <label>Open:</label>
               <input type="checkbox"
-                     formControlName="open">
+                     formControlName="open"
+                     #checkboxValue
+                     (click)="setTitleRequiredStatus(checkboxValue.checked)"
+                     >
        </div>
        <label>Location:</label>
        <input type="text"
@@ -41,7 +45,7 @@
 
        <button type="submit"
                [disabled]="jobFormGroup.invalid">Submit</button>
-               <button (click)="setOrPatchValue()">SetValue VS PatchValue</button> 
+       <button (click)="setOrPatchValue()">SetValue VS PatchValue</button>
 </form>
 
 <div class="center-text">
@@ -49,7 +53,7 @@
        <p>Dirty: {{ jobFormGroup.dirty }}</p>
        <p>Valid: {{ jobFormGroup.valid }}</p>
        <p>Invalid: {{ jobFormGroup.invalid }}</p>
-       <!-- <p>Errors: {{ jobFormGroup.errors}}</p> -->
+       <p>Errors: {{ jobFormGroup.get('description')?.errors | json}}</p> 
        <p>Touched: {{ jobFormGroup.touched }}</p>
        <p>Untouched: {{ jobFormGroup.untouched }}</p>
        <p>Value: {{ jobFormGroup.value | json }}</p>

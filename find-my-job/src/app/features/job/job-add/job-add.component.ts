@@ -37,6 +37,17 @@ export class JobAddComponent {
     }
   }
 
+  setTitleRequiredStatus(checkboxValue: boolean): void {
+    const titleControl = this.jobFormGroup.get('title');
+    if (checkboxValue === true) {
+      titleControl?.clearValidators();
+    } else {
+      titleControl?.setValidators(Validators.required);
+    }
+    // Reevaluate the email FormControl's validation state
+    titleControl?.updateValueAndValidity();
+  }
+
   setOrPatchValue(): void {
     // this.jobFormGroup.setValue({
     //   title: 'Software Engineer',

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-extras',
@@ -7,7 +7,12 @@ import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/cor
 })
 export class ExtrasComponent implements OnInit, OnDestroy, AfterViewInit {
   welcomeMessage= 'ngOnInit initial message!';
-  
+
+  constructor() {
+    console.log("constructor")
+    
+  }
+
   ngOnInit() {
     console.log(this.welcomeMessage);
   }
