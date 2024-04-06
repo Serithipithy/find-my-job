@@ -1,0 +1,14 @@
+<div class="job-list">
+  <div *ngFor="let job of jobs">
+    <app-job-card [title]="job.title" 
+                  [position]="job.position" 
+                  [company]="job.company" 
+                  [location]="job.location"
+                  [id]="job.id"
+                  (cardPressed)="onCardPressed($event)">
+    </app-job-card>
+  </div>
+  <!-- @for(job of jobs; track job.id) {
+    <app-job-card [title]="job.title" [position]="job.position" [company]="job.company" [location]="job.location"></app-job-card>
+  } -->
+</div>
