@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { JobDetailsComponent } from './job-details';
 import { JobListComponent } from './job-list';
 import { JobPanelComponent } from './job-panel/job-panel.component';
+import { JobAddComponent } from './job-add';
+import { ExtrasComponent } from './extras/extras.component';
 
 const routes: Routes = [
   {
@@ -17,8 +19,15 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: JobDetailsComponent
+  },
+  {
+    path: 'add-job',
+    component: JobAddComponent
+  },
+  {
+    path: 'extras',
+    component: ExtrasComponent
   }
-  
 ];
 
 @NgModule({
