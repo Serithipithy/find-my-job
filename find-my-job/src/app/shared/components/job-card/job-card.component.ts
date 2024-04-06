@@ -1,10 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-<<<<<<< HEAD
-=======
-import { Component, EventEmitter, Input, Output } from '@angular/core';
->>>>>>> practice/angular-introduction
-
 @Component({
   selector: 'app-job-card',
   standalone: true,
