@@ -24,13 +24,13 @@
 
        <label>Experience:</label>
        <input type="text"
-              formControlName="experience">
+              formControlName="experienceLevel">
 
        <!-- #checkboxValue local reference in Angular template -->
        <div class="checkbox-container ">
               <label>Open:</label>
               <input type="checkbox"
-                     formControlName="open"
+                     formControlName="isOpen"
                      #checkboxValue
                      (click)="setTitleRequiredStatus(checkboxValue.checked)"
                      >

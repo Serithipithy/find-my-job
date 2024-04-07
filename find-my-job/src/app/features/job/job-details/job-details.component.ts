@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import jobList from '../data/jobs-list.json';
 import { JobModel } from '../models/job.model';
+import { JobService } from '../services/job.service';
 
 @Component({
   selector: 'app-job-details',
@@ -10,15 +10,21 @@ import { JobModel } from '../models/job.model';
   templateUrl: './job-details.component.html',
   styleUrl: './job-details.component.scss'
 })
-export class JobDetailsComponent {
-  jobList: JobModel[] = jobList;
+export class JobDetailsComponent implements OnInit {
   jobContent?: JobModel;
-  constructor(private readonly route: ActivatedRoute) {
-    const jobId = this.route.snapshot.paramMap.get('id') ?? '';
-    this.getJob(jobId);
+  jobId: string;
+
+  constructor(private readonly route: ActivatedRoute, private readonly jobService: JobService) {
+    this.jobId = this.route.snapshot.paramMap.get('id') ?? '';
+  }
+
+  ngOnInit(): void {
+    this.getJob(this.jobId)
   }
 
   private getJob(jobId: string): void {
-    this.jobContent = jobList.find(job => job.id === jobId);
+    this.jobService.getJobById(jobId).subscribe(job => {
+      this.jobContent = job;
+    })
   }
 }

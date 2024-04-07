@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import jobData from '../data/jobs-list.json';
 import { JobModel } from '../models/job.model';
+import { JobService } from '../services/job.service';
 
 @Component({
   selector: 'app-job-list',
@@ -11,9 +12,16 @@ import { JobModel } from '../models/job.model';
   styleUrl: './job-list.component.scss'
 })
 export class JobListComponent {
-  jobs: JobModel[] = jobData;
+  //jobs: JobModel[] = jobData; //old version with hardcoded data
+  jobs: JobModel[] = [];
 
-  constructor(private readonly router: Router) {}
+  constructor(private readonly router: Router, private readonly jobService: JobService) {}
+
+  ngOnInit(): void {
+    this.jobService.getJobs().subscribe(jobs => {
+      this.jobs = jobs;
+    })
+  }
 
   onCardPressed(jobId: string): void {
     this.goToDetails(jobId);

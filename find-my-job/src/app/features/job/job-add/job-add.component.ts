@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { JobService } from '../services/job.service';
+import { JobModel } from '../models/job.model';
 
 @Component({
   selector: 'app-job-add',
@@ -8,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class JobAddComponent {
   jobFormGroup: FormGroup = new FormGroup({})
-  constructor() { }
+  constructor(private readonly jobService: JobService) { }
 
   ngOnInit() {
     console.log("ngOnInit started...");
@@ -17,8 +19,8 @@ export class JobAddComponent {
       description: new FormControl('', [Validators.required, Validators.minLength(3)]),
       position: new FormControl('', Validators.required),
       company: new FormControl('', Validators.required),
-      experience: new FormControl('', Validators.required),
-      open: new FormControl(false),
+      experienceLevel: new FormControl('', Validators.required),
+      isOpen: new FormControl(false),
       location: new FormControl('', Validators.required),
       remote: new FormControl('', Validators.required),
     })
@@ -33,7 +35,9 @@ export class JobAddComponent {
   submitForm() {
     if (this.jobFormGroup.valid) {
       // Form submission logic
-      console.log(this.jobFormGroup.value);
+      const submittedJob = this.jobFormGroup.value as JobModel;
+      this.jobService.addJob(submittedJob).subscribe();
+      //console.log(this.jobFormGroup.value);
     }
   }
 
